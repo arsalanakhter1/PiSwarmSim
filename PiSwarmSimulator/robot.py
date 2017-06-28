@@ -42,7 +42,7 @@ class Robot:
         
         #Robot movement properties
         self.currentSpeed = 0
-        self.topSpeed = 3
+        self.topSpeed = 50
         
         self.heading = (0,0)        #Turn to coordinate
         self.headingAngle = 0       #Turn to this angle (in radians)
@@ -388,7 +388,7 @@ class Robot:
         self.driveRightWheelBackward(0.15)
     
     #Functions to control each wheel independently - allowing movement and turning of the robot
-    def driveRightWheelForward(self, speed=5):
+    def driveRightWheelForward(self, speed=50):
         #Get robot heading vector from the perspective of the right wheel
         #Right wheel position is (0,-1), front of robot is (-1,0)
         f = b2Mul(self.body.transform.R,(-1.0,-1.0))
@@ -401,7 +401,7 @@ class Robot:
         p = self.body.GetWorldPoint(localPoint=(0.0, -1.0))
         self.body.ApplyForce(f, p, True)
         
-    def driveLeftWheelForward(self, speed=5):
+    def driveLeftWheelForward(self, speed=50):
         #Get robot heading vector from the perspective of the left wheel
         #Left wheel position is (0,1), front of robot is (-1,0)
         f = b2Mul(self.body.transform.R,(-1.0,1.0))
@@ -414,7 +414,7 @@ class Robot:
         p = self.body.GetWorldPoint(localPoint=(0.0, 1.0))
         self.body.ApplyForce(f, p, True)
             
-    def driveRightWheelBackward(self, speed=1):
+    def driveRightWheelBackward(self, speed=10):
         #Get robot reverse heading vector from the perspective of the right wheel
         #Right wheel position is (0,-1), front of robot is (-1,0)
         f = b2Mul(self.body.transform.R,(1.0,-1.0))
@@ -427,7 +427,7 @@ class Robot:
         p = self.body.GetWorldPoint(localPoint=(0.0, -1.0))
         self.body.ApplyForce(f, p, True)
         
-    def driveLeftWheelBackward(self, speed=1):
+    def driveLeftWheelBackward(self, speed=10):
         #Get robot reverse heading vector from the perspective of the left wheel
         #Left wheel position is (0,1), front of robot is (-1,0)
         f = b2Mul(self.body.transform.R,(1.0,1.0))
