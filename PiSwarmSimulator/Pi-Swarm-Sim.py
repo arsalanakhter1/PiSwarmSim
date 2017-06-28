@@ -31,7 +31,7 @@ class runSim(Framework):
         super(runSim, self).__init__()
 
         if self.settings.experiment == True:
-            expfile = 'experiment_settings.txt'
+            expfile = 'EXAMPLE_experiment_settings.txt'
             paramFile = open(expfile, 'r')
             expName = paramFile.readline().strip()
             print expName

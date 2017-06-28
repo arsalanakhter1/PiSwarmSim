@@ -54,7 +54,7 @@ class fwSettings(object):
     #Added in for Pi-swarm sim
     displayOn=True  #This doesn't work yet!
     logfiles = True
-    experiment = False
+    experiment = True
 
 #             text                  variable
 checkboxes =( ("Warm Starting"   , "enableWarmStarting"), 
