@@ -74,9 +74,9 @@ class Robot:
             self.batterylevel = self.fullBattery
         #self.batterylevel = random.randint(600,1200)
         self.rechargeThresh = 40     #Threshold as percentage - must be lower than exploreThresh
-        self.exploreThresh = 70    #Threshold as percentage - must be higher than rechargeThresh
+        self.exploreThresh = 41    #Threshold as percentage - must be higher than rechargeThresh
         self.recharging = False
-        self.chargeRate = 0.5
+        self.chargeRate = 0.8
         self.useRate = 0.33333
         self.totalUsedPower = 0
         self.totalDrawnPower = 0
@@ -439,7 +439,14 @@ class Robot:
         #Apply forward vector to wheel
         p = self.body.GetWorldPoint(localPoint=(0.0, 1.0))
         self.body.ApplyForce(f, p, True)
-        
+
+    def restartMoving(self):
+        # Function used for getting the robots move when they are at 0 velocity
+        # This isn't a good way to do this - There might/should be a method to figure out the right velocity
+        self.body.linearVelocity = (0.5*self.topSpeed,0.5*self.topSpeed)
+        self.body.angularVelocity = 0.2
+        #self.currentSpeed = 0    
+
     #Return side of robot that the sensor is on
     def sensSide(self, sensorid):
         

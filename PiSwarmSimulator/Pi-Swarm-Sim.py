@@ -320,17 +320,18 @@ class runSim(Framework):
                         #print "robot " + str(therobot.robotid) + " sensor " + str(sensor.proxid) + " dist is " + str(distToRobot)
                     
                     self.setFlockingBehaviour(distToRobot, sensor, therobot, sensor.nearestRobot)
-        
-            #Drive robots
-            therobot.drive(self.clock)
-            
+    
             #Check whether to recharge
             if therobot.recharging == True:
                 therobot.recharge()
                 #If the robot is in the recharge state and has recharged sufficiently then set back to explore
                 if therobot.task == "recharge" and therobot.batterylevel >= therobot.exploreThresh*(therobot.fullBattery/100):
                     therobot.explore()
-            
+                    therobot.restartMoving()    #Push the robots a little - need to look for a better way
+                    therobot.drive(self.clock)  # Drive robots
+            else:
+                #Drive robots
+                therobot.drive(self.clock)
             #Inc time to next heading change
             therobot.timer += 1
         

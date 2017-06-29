@@ -1,0 +1,2 @@
+startBatteryLevel-uniform-[50]
+[{'startBatteryLevel': 40.1},{'startBatteryLevel': 40.1},{'startBatteryLevel': 40.1},{'startBatteryLevel': 40.1},{'startBatteryLevel': 40.1},{'startBatteryLevel': 40.1},{'startBatteryLevel': 40.1},{'startBatteryLevel': 40.1},{'startBatteryLevel': 40.1},{'startBatteryLevel': 40.1},{'startBatteryLevel': 40.1},{'startBatteryLevel': 40.1}]
